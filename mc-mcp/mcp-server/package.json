@@ -1,0 +1,27 @@
+{
+  "name": "mc-mcp-server",
+  "version": "0.1.0",
+  "description": "MCP server that lets an AI agent play Minecraft 26.2 as a real player",
+  "type": "module",
+  "bin": {
+    "mc-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.4.3",
+    "@mc-mcp/client": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

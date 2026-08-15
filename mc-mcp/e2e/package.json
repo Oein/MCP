@@ -1,0 +1,23 @@
+{
+  "name": "@mc-mcp/e2e",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test --test-concurrency=1 'tests/*.test.ts'",
+    "test:watch": "node --test --watch --test-concurrency=1 'tests/*.test.ts'",
+    "test:visible": "MCMCP_HEADLESS=0 npm test",
+    "typecheck": "tsc --noEmit",
+    "stop": "node stop.ts",
+    "pretest": "node ensure-game.ts",
+    "ensure": "node ensure-game.ts"
+  },
+  "dependencies": {
+    "@mc-mcp/client": "*"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}
