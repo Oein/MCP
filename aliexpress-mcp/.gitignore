@@ -1,0 +1,4 @@
+# 공통 규칙(node_modules, dist, 로그 등)은 루트 .gitignore 참고
+
+# 스크래핑 프로브 결과
+.probe/
