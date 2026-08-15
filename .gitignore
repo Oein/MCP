@@ -1,0 +1,38 @@
+# ── 전역 규칙 (모든 하위 프로젝트 공통) ──────────────────
+# 프로젝트 고유 규칙은 각 프로젝트의 .gitignore 참고
+
+# OS / 에디터
+.DS_Store
+Thumbs.db
+*.swp
+
+# 의존성
+node_modules/
+.pnpm-store/
+
+# 빌드 산출물
+dist/
+build/
+out/
+target/
+coverage/
+*.tsbuildinfo
+.gradle/
+
+# 빌드된 바이너리 (gradle wrapper는 예외 - 커밋 필요)
+*.jar
+!**/gradle/wrapper/gradle-wrapper.jar
+
+# 로그 / 임시 파일
+*.log
+logs/
+TEMP/
+tmp/
+
+# 환경변수 / 시크릿
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
