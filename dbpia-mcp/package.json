@@ -1,0 +1,20 @@
+{
+  "name": "dbpia-mcp",
+  "version": "1.0.0",
+  "description": "DBPia MCP server - 논문 검색 및 열람",
+  "type": "module",
+  "main": "index.mjs",
+  "bin": {
+    "dbpia-mcp": "./index.mjs"
+  },
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.4.3"
+  }
+}
