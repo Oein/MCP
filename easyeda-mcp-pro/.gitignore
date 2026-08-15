@@ -1,34 +1,23 @@
-node_modules/
-dist/
-.env
+# 공통 규칙(node_modules, dist, coverage, 로그, .env 등)은 루트 .gitignore 참고
+
+# 로컬 상태 / 캐시
 .easyeda-mcp-pro/
-*.tsbuildinfo
-coverage/
-*.log
-.DS_Store
-Thumbs.db
-.playwright-mcp/
+.agent-state.json
 .mcpregistry_*
 .codex-checkpoints/
-TEMP/
-easyeda-bridge-extension.zip
-easyeda-bridge-extension.eext
-.agent-state.json
+.playwright-mcp/
 
-# Extension release artifacts
-easyeda-bridge-extension.checksums.json
-
-# Local code-analysis metadata
+# 로컬 코드 분석 메타데이터
 .serena/
 .codebase-memory/
 
-# Local security-tool virtual environments
+# 로컬 보안 도구 가상환경
 .venv-pre-commit/
 .venv-semgrep/
 reports/
 
-# Generated Codecov reports
+# 익스텐션 릴리스 산출물
+easyeda-bridge-extension.zip
+easyeda-bridge-extension.eext
+easyeda-bridge-extension.checksums.json
 easyeda-bridge-extension/coverage/
-
-# Project-local package-manager stores
-.pnpm-store/

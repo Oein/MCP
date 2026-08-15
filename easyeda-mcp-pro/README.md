@@ -1,3 +1,8 @@
+> **Vendored copy.** This directory is a working copy of
+> [oaslananka/easyeda-mcp-pro](https://github.com/oaslananka/easyeda-mcp-pro) (MIT, see `LICENSE`),
+> checked into this monorepo. The CI / Scorecard badges below track the **upstream** repository,
+> not this one. Upstream is the place to file issues or send patches.
+
 <div align="center">
 
 # easyeda-mcp-pro
