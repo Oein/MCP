@@ -1,0 +1,38 @@
+{
+  "name": "our-world-in-data-mcp",
+  "version": "0.1.0",
+  "description": "Our World in Data 공개 API를 노출하는 MCP 서버",
+  "type": "module",
+  "bin": {
+    "our-world-in-data-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "watch": "tsc --watch",
+    "start": "node dist/index.js",
+    "inspect": "npx -y @modelcontextprotocol/inspector node dist/index.js",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "owid",
+    "our-world-in-data",
+    "data"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^5.6.0"
+  }
+}
