@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../src/export-manifest/schema.json",
+  "version": "not-a-version",
+  "sourceProjectId": "proj-esp32-s3-001",
+  "generatedAt": "2026-06-11T21:00:00.000Z",
+  "artifacts": [
+    {
+      "filename": "ESP32-S3-Board-F.Cu.gbr",
+      "fileType": "gerber",
+      "purpose": "Top copper layer",
+      "sourceProject": "proj-esp32-s3-001",
+      "generatedByTool": "easyeda-export-gerbers",
+      "timestamp": "2026-06-11T21:00:01.000Z",
+      "fileSize": 4096,
+      "required": true,
+      "stale": false
+    }
+  ]
+}

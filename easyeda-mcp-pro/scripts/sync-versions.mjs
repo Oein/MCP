@@ -1,0 +1,83 @@
+import fs from 'fs';
+import path from 'path';
+import { execFileSync } from 'child_process';
+import { fileURLToPath } from 'url';
+import { resolveEasyedaManifestVersion } from './extension-metadata-policy.mjs';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const root = path.join(__dirname, '..');
+
+const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
+const version = pkg.version;
+
+console.log(`Syncing version to: ${version}`);
+
+// 1. Update src/config/version.ts
+const versionTsPath = path.join(root, 'src', 'config', 'version.ts');
+fs.writeFileSync(
+  versionTsPath,
+  `export const SERVER_VERSION = '${version}'; // x-release-please-version\n`,
+);
+console.log(`- Synced: ${versionTsPath}`);
+
+// 2. Update easyeda-bridge-extension/src/index.ts
+const extensionTsPath = path.join(root, 'easyeda-bridge-extension', 'src', 'index.ts');
+if (fs.existsSync(extensionTsPath)) {
+  let content = fs.readFileSync(extensionTsPath, 'utf8');
+  content = content.replace(/(extensionVersion:\s*')[^']*(',)/, `$1${version}$2`);
+  fs.writeFileSync(extensionTsPath, content);
+  console.log(`- Synced: ${extensionTsPath}`);
+}
+
+// 3. Update easyeda-bridge-extension/extension.json
+const extensionJsonPath = path.join(root, 'easyeda-bridge-extension', 'extension.json');
+if (fs.existsSync(extensionJsonPath)) {
+  const extJson = JSON.parse(fs.readFileSync(extensionJsonPath, 'utf8'));
+  const easyedaManifestVersion = resolveEasyedaManifestVersion(version);
+  extJson.version = easyedaManifestVersion;
+  fs.writeFileSync(extensionJsonPath, JSON.stringify(extJson, null, 2) + '\n');
+  console.log(
+    `- Synced: ${extensionJsonPath} (EasyEDA package ${easyedaManifestVersion}, product ${version})`,
+  );
+}
+
+// 4. Update .claude-plugin/plugin.json
+const claudePluginJsonPath = path.join(root, '.claude-plugin', 'plugin.json');
+if (fs.existsSync(claudePluginJsonPath)) {
+  const pluginJson = JSON.parse(fs.readFileSync(claudePluginJsonPath, 'utf8'));
+  pluginJson.version = version;
+  fs.writeFileSync(claudePluginJsonPath, JSON.stringify(pluginJson, null, 2) + '\n');
+  console.log(`- Synced: ${claudePluginJsonPath}`);
+}
+
+// 5. Update server.json
+const serverJsonPath = path.join(root, 'server.json');
+if (fs.existsSync(serverJsonPath)) {
+  const serverJson = JSON.parse(fs.readFileSync(serverJsonPath, 'utf8'));
+  serverJson.version = version;
+  if (serverJson.packages && serverJson.packages[0]) {
+    serverJson.packages[0].version = version;
+  }
+  fs.writeFileSync(serverJsonPath, JSON.stringify(serverJson, null, 2) + '\n');
+  console.log(`- Synced: ${serverJsonPath}`);
+}
+
+// 6. Format all synced files with Prettier to ensure consistent style
+try {
+  const prettierFiles = [extensionJsonPath, serverJsonPath, claudePluginJsonPath].filter((f) =>
+    fs.existsSync(f),
+  );
+  if (prettierFiles.length > 0) {
+    execFileSync('npx', ['prettier', '--write', ...prettierFiles], {
+      cwd: root,
+      stdio: 'pipe',
+      encoding: 'utf8',
+    });
+    console.log('- Formatted synced JSON files with Prettier');
+  }
+} catch (err) {
+  console.warn('- Warning: could not format with Prettier:', err.message);
+}
+
+console.log('Version sync completed successfully.');

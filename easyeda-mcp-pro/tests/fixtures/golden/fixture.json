@@ -1,0 +1,492 @@
+{
+  "$schema": "./fixture-schema.json",
+  "fixtureName": "ESP32-S3 Sensor and Control Board",
+  "fixtureVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "description": "Golden E2E fixture for EasyEDA Pro workflow validation. A dual-layer ESP32-S3 based sensor and control board with USB/UART debug, 3.3V LDO power tree, I2C sensor header, indicator LEDs, reset/boot buttons, test points, and M3 mounting holes. Designed to exercise schematic capture, component placement, wiring, named nets, BOM generation, ERC/DRC, and manufacturing exports.",
+
+  "board": {
+    "expectedLayers": 2,
+    "expectedDimensions": {
+      "width_mm": 60.0,
+      "height_mm": 40.0
+    },
+    "expectedFeatures": {
+      "vias": 12,
+      "tracks": 80,
+      "zones": 2,
+      "pads": 60,
+      "components": 22
+    }
+  },
+
+  "schematic": {
+    "components": [
+      {
+        "ref": "U1",
+        "description": "ESP32-S3-MINI-1-N8",
+        "package": "ESP32-S3-MINI-1",
+        "lcsc": "C12345678",
+        "quantity": 1,
+        "category": "IC"
+      },
+      {
+        "ref": "U2",
+        "description": "CP2102N USB-to-UART Bridge",
+        "package": "QFN-28_4x4mm_P0.4mm",
+        "lcsc": "C87654321",
+        "quantity": 1,
+        "category": "IC"
+      },
+      {
+        "ref": "U3",
+        "description": "XC6206P332MR 3.3V LDO Regulator",
+        "package": "SOT-23-3",
+        "lcsc": "C11223344",
+        "quantity": 1,
+        "category": "Power"
+      },
+      {
+        "ref": "U4",
+        "description": "BME280 Temperature/Humidity/Pressure Sensor",
+        "package": "LGA-8_2.5x2.5mm_P0.65mm",
+        "lcsc": "C99887766",
+        "quantity": 1,
+        "category": "IC"
+      },
+      {
+        "ref": "U5",
+        "description": "W25Q128JVSIQ 128MBit SPI Flash",
+        "package": "SOIC-8_208mil",
+        "lcsc": "C55443322",
+        "quantity": 1,
+        "category": "IC"
+      },
+      {
+        "ref": "D1",
+        "description": "Red LED 0805",
+        "package": "LED-0805",
+        "lcsc": "C11223344",
+        "quantity": 1,
+        "category": "Passive"
+      },
+      {
+        "ref": "D2",
+        "description": "Green LED 0805",
+        "package": "LED-0805",
+        "lcsc": "C11223344",
+        "quantity": 1,
+        "category": "Passive"
+      },
+      {
+        "ref": "D3",
+        "description": "Blue LED 0805",
+        "package": "LED-0805",
+        "lcsc": "C11223344",
+        "quantity": 1,
+        "category": "Passive"
+      },
+      {
+        "ref": "R1",
+        "description": "10k Resistor 0805",
+        "package": "RES-0805",
+        "lcsc": "C123456",
+        "quantity": 1,
+        "category": "Passive"
+      },
+      {
+        "ref": "R2",
+        "description": "10k Resistor 0805",
+        "package": "RES-0805",
+        "lcsc": "C123456",
+        "quantity": 1,
+        "category": "Passive"
+      },
+      {
+        "ref": "R3",
+        "description": "1k Resistor 0805",
+        "package": "RES-0805",
+        "lcsc": "C123457",
+        "quantity": 1,
+        "category": "Passive"
+      },
+      {
+        "ref": "R4",
+        "description": "1k Resistor 0805",
+        "package": "RES-0805",
+        "lcsc": "C123457",
+        "quantity": 1,
+        "category": "Passive"
+      },
+      {
+        "ref": "R5",
+        "description": "1k Resistor 0805",
+        "package": "RES-0805",
+        "lcsc": "C123457",
+        "quantity": 1,
+        "category": "Passive"
+      },
+      {
+        "ref": "R6",
+        "description": "4.7k Resistor 0805",
+        "package": "RES-0805",
+        "lcsc": "C123458",
+        "quantity": 1,
+        "category": "Passive"
+      },
+      {
+        "ref": "R7",
+        "description": "4.7k Resistor 0805",
+        "package": "RES-0805",
+        "lcsc": "C123458",
+        "quantity": 1,
+        "category": "Passive"
+      },
+      {
+        "ref": "C1",
+        "description": "10uF Ceramic Capacitor 0805",
+        "package": "CAP-0805",
+        "lcsc": "C223344",
+        "quantity": 1,
+        "category": "Passive"
+      },
+      {
+        "ref": "C2",
+        "description": "0.1uF Ceramic Capacitor 0805",
+        "package": "CAP-0805",
+        "lcsc": "C223345",
+        "quantity": 1,
+        "category": "Passive"
+      },
+      {
+        "ref": "C3",
+        "description": "0.1uF Ceramic Capacitor 0805",
+        "package": "CAP-0805",
+        "lcsc": "C223345",
+        "quantity": 1,
+        "category": "Passive"
+      },
+      {
+        "ref": "C4",
+        "description": "10uF Ceramic Capacitor 0805",
+        "package": "CAP-0805",
+        "lcsc": "C223344",
+        "quantity": 1,
+        "category": "Passive"
+      },
+      {
+        "ref": "J1",
+        "description": "USB-C Connector",
+        "package": "USB-C-16P_8.34x2.6mm",
+        "lcsc": "C334455",
+        "quantity": 1,
+        "category": "Connector"
+      },
+      {
+        "ref": "J2",
+        "description": "I2C Sensor Header 4-pin",
+        "package": "PINHD-1x4_2.54mm",
+        "lcsc": "C445566",
+        "quantity": 1,
+        "category": "Connector"
+      },
+      {
+        "ref": "J3",
+        "description": "Tag-Connect Debug Header 6-pin",
+        "package": "PINHD-2x3_2.54mm",
+        "lcsc": "C556677",
+        "quantity": 1,
+        "category": "Connector"
+      },
+      {
+        "ref": "SW1",
+        "description": "Reset Push Button",
+        "package": "TACT-6x6mm",
+        "lcsc": "C667788",
+        "quantity": 1,
+        "category": "Electromechanical"
+      },
+      {
+        "ref": "SW2",
+        "description": "Boot Push Button",
+        "package": "TACT-6x6mm",
+        "lcsc": "C667788",
+        "quantity": 1,
+        "category": "Electromechanical"
+      },
+      {
+        "ref": "MH1",
+        "description": "M3 Mounting Hole",
+        "package": "MTHOLE-3mm",
+        "quantity": 1,
+        "category": "Other"
+      },
+      {
+        "ref": "MH2",
+        "description": "M3 Mounting Hole",
+        "package": "MTHOLE-3mm",
+        "quantity": 1,
+        "category": "Other"
+      },
+      {
+        "ref": "MH3",
+        "description": "M3 Mounting Hole",
+        "package": "MTHOLE-3mm",
+        "quantity": 1,
+        "category": "Other"
+      },
+      {
+        "ref": "MH4",
+        "description": "M3 Mounting Hole",
+        "package": "MTHOLE-3mm",
+        "quantity": 1,
+        "category": "Other"
+      }
+    ],
+
+    "namedNets": [
+      { "name": "VIN", "nodes": ["J1.1", "U3.1", "C1.1"] },
+      {
+        "name": "GND",
+        "nodes": [
+          "J1.2",
+          "J1.3",
+          "U1.9",
+          "U1.11",
+          "U1.14",
+          "U2.4",
+          "U2.5",
+          "U3.2",
+          "U3.3",
+          "U4.2",
+          "U4.7",
+          "U5.4",
+          "C1.2",
+          "C2.2",
+          "C3.2",
+          "C4.2",
+          "J2.2",
+          "J3.2",
+          "J3.4",
+          "SW1.2",
+          "SW2.2"
+        ]
+      },
+      {
+        "name": "3V3",
+        "nodes": [
+          "U3.2",
+          "U1.1",
+          "U1.2",
+          "U1.3",
+          "U4.1",
+          "U4.4",
+          "U5.8",
+          "C2.1",
+          "C3.1",
+          "C4.1",
+          "R6.1",
+          "R7.1"
+        ]
+      },
+      { "name": "USB_D+", "nodes": ["J1.4", "U2.14"] },
+      { "name": "USB_D-", "nodes": ["J1.5", "U2.15"] },
+      { "name": "UART_TXD", "nodes": ["U2.16", "U1.37"] },
+      { "name": "UART_RXD", "nodes": ["U2.17", "U1.38"] },
+      { "name": "GPIO_LED_RED", "nodes": ["U1.5", "R3.1"] },
+      { "name": "GPIO_LED_GRN", "nodes": ["U1.6", "R4.1"] },
+      { "name": "GPIO_LED_BLU", "nodes": ["U1.7", "R5.1"] },
+      { "name": "R3_LED_R", "nodes": ["R3.2", "D1.1"] },
+      { "name": "R4_LED_G", "nodes": ["R4.2", "D2.1"] },
+      { "name": "R5_LED_B", "nodes": ["R5.2", "D3.1"] },
+      { "name": "D1_GND", "nodes": ["D1.2", "GND"] },
+      { "name": "D2_GND", "nodes": ["D2.2", "GND"] },
+      { "name": "D3_GND", "nodes": ["D3.2", "GND"] },
+      { "name": "I2C_SCL", "nodes": ["U1.8", "U4.5", "R6.2", "J2.1"] },
+      { "name": "I2C_SDA", "nodes": ["U1.10", "U4.6", "R7.2", "J2.3"] },
+      { "name": "SPI_MOSI", "nodes": ["U1.11", "U5.5"] },
+      { "name": "SPI_MISO", "nodes": ["U1.12", "U5.2"] },
+      { "name": "SPI_SCLK", "nodes": ["U1.13", "U5.6"] },
+      { "name": "SPI_CS_FLASH", "nodes": ["U1.14", "U5.1"] },
+      { "name": "EN", "nodes": ["U1.15", "SW1.1", "R1.1"] },
+      { "name": "R1_3V3", "nodes": ["R1.2", "3V3"] },
+      { "name": "GPIO_BOOT", "nodes": ["U1.16", "SW2.1", "R2.1"] },
+      { "name": "R2_GND", "nodes": ["R2.2", "GND"] },
+      { "name": "USB_ID", "nodes": ["J1.6", "GND"] },
+      { "name": "VIN_FILT", "nodes": ["C1.2", "GND"] },
+      { "name": "3V3_FILT", "nodes": ["C4.2", "GND"] }
+    ],
+
+    "totalNets": 40
+  },
+
+  "bom": {
+    "expectedLineCount": 18,
+    "maxLineCostUsd": 5.0,
+    "lines": [
+      {
+        "ref": "U1",
+        "description": "ESP32-S3-MINI-1-N8",
+        "package": "ESP32-S3-MINI-1",
+        "quantity": 1,
+        "lcsc": "C12345678"
+      },
+      {
+        "ref": "U2",
+        "description": "CP2102N USB-to-UART Bridge",
+        "package": "QFN-28_4x4mm_P0.4mm",
+        "quantity": 1,
+        "lcsc": "C87654321"
+      },
+      {
+        "ref": "U3",
+        "description": "XC6206P332MR 3.3V LDO Regulator",
+        "package": "SOT-23-3",
+        "quantity": 1,
+        "lcsc": "C11223344"
+      },
+      {
+        "ref": "U4",
+        "description": "BME280 Temperature/Humidity/Pressure Sensor",
+        "package": "LGA-8_2.5x2.5mm_P0.65mm",
+        "quantity": 1,
+        "lcsc": "C99887766"
+      },
+      {
+        "ref": "U5",
+        "description": "W25Q128JVSIQ 128MBit SPI Flash",
+        "package": "SOIC-8_208mil",
+        "quantity": 1,
+        "lcsc": "C55443322"
+      },
+      { "ref": "D1, D2, D3", "description": "LED 0805", "package": "LED-0805", "quantity": 3 },
+      { "ref": "R1, R2", "description": "10k Resistor 0805", "package": "RES-0805", "quantity": 2 },
+      {
+        "ref": "R3, R4, R5",
+        "description": "1k Resistor 0805",
+        "package": "RES-0805",
+        "quantity": 3
+      },
+      {
+        "ref": "R6, R7",
+        "description": "4.7k Resistor 0805",
+        "package": "RES-0805",
+        "quantity": 2
+      },
+      {
+        "ref": "C1, C4",
+        "description": "10uF Ceramic Capacitor 0805",
+        "package": "CAP-0805",
+        "quantity": 2
+      },
+      {
+        "ref": "C2, C3",
+        "description": "0.1uF Ceramic Capacitor 0805",
+        "package": "CAP-0805",
+        "quantity": 2
+      },
+      {
+        "ref": "J1",
+        "description": "USB-C Connector",
+        "package": "USB-C-16P_8.34x2.6mm",
+        "quantity": 1,
+        "lcsc": "C334455"
+      },
+      {
+        "ref": "J2",
+        "description": "I2C Sensor Header 4-pin",
+        "package": "PINHD-1x4_2.54mm",
+        "quantity": 1,
+        "lcsc": "C445566"
+      },
+      {
+        "ref": "J3",
+        "description": "Tag-Connect Debug Header 6-pin",
+        "package": "PINHD-2x3_2.54mm",
+        "quantity": 1,
+        "lcsc": "C556677"
+      },
+      {
+        "ref": "SW1",
+        "description": "Reset Push Button",
+        "package": "TACT-6x6mm",
+        "quantity": 1,
+        "lcsc": "C667788"
+      },
+      {
+        "ref": "SW2",
+        "description": "Boot Push Button",
+        "package": "TACT-6x6mm",
+        "quantity": 1,
+        "lcsc": "C667788"
+      },
+      {
+        "ref": "MH1, MH2, MH3, MH4",
+        "description": "M3 Mounting Hole",
+        "package": "MTHOLE-3mm",
+        "quantity": 4
+      },
+      {
+        "ref": "",
+        "description": "PCB Fabrication (2-layer, 60x40mm, FR4, 1.6mm, HASL, 1oz Cu)",
+        "package": "PCB",
+        "quantity": 1
+      }
+    ]
+  },
+
+  "bomQuality": {
+    "expectedMinEntries": 18,
+    "expectedIssueTypes": ["missing_mpn"],
+    "minExpectedIssues": 5,
+    "supplierDependent": true
+  },
+
+  "erc": {
+    "expectedErrorCount": 0,
+    "expectedWarningCount": 2,
+    "maxErrors": 1
+  },
+
+  "drc": {
+    "expectedErrorCount": 0,
+    "expectedWarningCount": 3,
+    "maxErrors": 2
+  },
+
+  "pcbConstraints": {
+    "expectedBoardOutline": true,
+    "expectedLayerCount": 2,
+    "expectedDimensionsMm": { "width": 60.0, "height": 40.0 },
+    "expectedErrors": 0,
+    "expectedWarnings": 6,
+    "expectedManualReviewCount": 3,
+    "expectedVerdict": "needs-review"
+  },
+
+  "exportManifest": {
+    "expectedFileCount": 12,
+    "expectedFormats": ["gerber", "drill", "bom_csv", "pnp_csv", "pdf_schematic"],
+    "files": [
+      { "name": "ESP32-S3-Sensor-Board-F.Cu.gbr", "format": "gerber", "minSizeBytes": 2048 },
+      { "name": "ESP32-S3-Sensor-Board-B.Cu.gbr", "format": "gerber", "minSizeBytes": 2048 },
+      { "name": "ESP32-S3-Sensor-Board-B.Mask.gbr", "format": "gerber", "minSizeBytes": 512 },
+      { "name": "ESP32-S3-Sensor-Board-F.Mask.gbr", "format": "gerber", "minSizeBytes": 512 },
+      { "name": "ESP32-S3-Sensor-Board-B.SilkS.gbr", "format": "gerber", "minSizeBytes": 512 },
+      { "name": "ESP32-S3-Sensor-Board-F.SilkS.gbr", "format": "gerber", "minSizeBytes": 512 },
+      { "name": "ESP32-S3-Sensor-Board-Edge.Cuts.gbr", "format": "gerber", "minSizeBytes": 256 },
+      { "name": "ESP32-S3-Sensor-Board.drl", "format": "drill", "minSizeBytes": 128 },
+      { "name": "ESP32-S3-Sensor-Board.csv", "format": "bom_csv", "minSizeBytes": 512 },
+      { "name": "ESP32-S3-Sensor-Board-PnP.csv", "format": "pnp_csv", "minSizeBytes": 512 },
+      { "name": "ESP32-S3-Sensor-Board-Schematic.pdf", "format": "pdf", "minSizeBytes": 10240 },
+      { "name": "ESP32-S3-Sensor-Board-NPTH.drl", "format": "drill", "minSizeBytes": 64 }
+    ]
+  },
+
+  "metadata": {
+    "easyedaVersion": "2.x",
+    "bridgeExtensionVersion": "0.4.0",
+    "serverVersion": "0.4.0",
+    "requiresLocalEasyEDA": true
+  }
+}

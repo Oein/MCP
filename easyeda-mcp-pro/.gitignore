@@ -1,0 +1,34 @@
+node_modules/
+dist/
+.env
+.easyeda-mcp-pro/
+*.tsbuildinfo
+coverage/
+*.log
+.DS_Store
+Thumbs.db
+.playwright-mcp/
+.mcpregistry_*
+.codex-checkpoints/
+TEMP/
+easyeda-bridge-extension.zip
+easyeda-bridge-extension.eext
+.agent-state.json
+
+# Extension release artifacts
+easyeda-bridge-extension.checksums.json
+
+# Local code-analysis metadata
+.serena/
+.codebase-memory/
+
+# Local security-tool virtual environments
+.venv-pre-commit/
+.venv-semgrep/
+reports/
+
+# Generated Codecov reports
+easyeda-bridge-extension/coverage/
+
+# Project-local package-manager stores
+.pnpm-store/

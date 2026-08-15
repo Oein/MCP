@@ -1,0 +1,49 @@
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      TOOL_PROFILE:
+        type: string
+        enum:
+          - core
+          - pro
+          - full
+          - dev
+        default: core
+        title: Tool Profile
+        description: >-
+          Controls which tools are available.
+          core = diagnostics + schematic + BOM + DRC/ERC + board + Gerber export.
+          pro = core + pick-place, PDF, netlist export.
+          full = pro + controlled EasyEDA API method calls.
+          dev = full + bridge probe and component inspection tools.
+      BRIDGE_PORT:
+        type: number
+        default: 49620
+        title: Bridge Port
+        description: >-
+          WebSocket port for the EasyEDA Pro bridge extension connection.
+      LOG_LEVEL:
+        type: string
+        enum:
+          - trace
+          - debug
+          - info
+          - warn
+          - error
+          - silent
+        default: info
+        title: Log Level
+        description: Server log verbosity level.
+    required: []
+  commandFunction: |-
+    (config) => ({
+      command: 'npx',
+      args: ['-y', 'easyeda-mcp-pro@latest'],
+      env: {
+        TOOL_PROFILE: config.TOOL_PROFILE || 'core',
+        BRIDGE_PORT: String(config.BRIDGE_PORT || 49620),
+        LOG_LEVEL: config.LOG_LEVEL || 'info'
+      }
+    })

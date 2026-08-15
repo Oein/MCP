@@ -1,0 +1,11 @@
+---
+extends: default
+
+ignore: |
+  node_modules/
+  pnpm-lock.yaml
+  .codex-checkpoints/
+
+rules:
+  line-length:
+    max: 120

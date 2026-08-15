@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../src/export-manifest/schema.json",
+  "version": "1.0.0",
+  "sourceProjectId": "",
+  "sourceProjectName": "",
+  "generatedAt": "",
+  "serverVersion": "",
+  "artifacts": [
+    {
+      "filename": "ESP32-S3-Board-F.Cu.gbr",
+      "fileType": "gerber",
+      "purpose": "",
+      "sourceProject": "",
+      "generatedByTool": "easyeda-export-gerbers",
+      "timestamp": "",
+      "fileSize": 4096,
+      "required": true,
+      "stale": false
+    }
+  ]
+}

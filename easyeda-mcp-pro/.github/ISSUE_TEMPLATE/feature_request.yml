@@ -1,0 +1,91 @@
+---
+name: Feature Request 💡
+description: Suggest a new tool, API integration, or capability for easyeda-mcp-pro.
+labels: ['enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We are always open to improving easyeda-mcp-pro! Please share your ideas here.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - area:easyeda-bridge
+        - area:schematic
+        - area:pcb
+        - area:bom-sourcing
+        - area:manufacturing-export
+        - area:docs
+        - area:release
+        - area:security
+        - area:devex
+    validations:
+      required: true
+
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Risk Class
+      options:
+        - none
+        - risk:agent-safety
+        - risk:supply-chain
+        - security-sensitive
+        - write/mutation workflow
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: Is your feature request related to a problem or limitation? Please describe.
+      placeholder: E.g., Currently, there is no tool to check board clearance rules, which makes routing checks manual...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you'd like to see implemented.
+      placeholder: E.g., Add an `easyeda_drc_run` tool that triggers a Design Rule Check via the bridge and returns the violations list.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Describe any alternative solutions or workarounds you have considered.
+      placeholder: E.g., Manually running DRC in EasyEDA Pro UI and exporting reports...
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Concrete checklist for closing this feature request.
+      placeholder: |
+        - [ ] API/tool behavior is implemented.
+        - [ ] Tests cover normal and unsafe inputs.
+        - [ ] Docs explain usage and limitations.
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any other context, screenshots, or examples (e.g. documentation link for EasyEDA Pro API).
+      placeholder: E.g., The EasyEDA Pro API supports `api.runDRC()` as documented at...
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I have checked the existing feature requests and found no duplicates.
+          required: true

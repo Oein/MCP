@@ -1,0 +1,6 @@
+---
+blank_issues_enabled: false
+contact_links:
+  - name: Security Vulnerability
+    url: https://github.com/oaslananka/easyeda-mcp-pro/security/policy
+    about: If you believe you have discovered a security vulnerability, please report it via the Security Policy instead of opening a public issue.

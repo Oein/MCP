@@ -1,0 +1,115 @@
+{
+  "$schema": "../../../src/export-manifest/schema.json",
+  "version": "1.0.0",
+  "sourceProjectId": "proj-esp32-s3-001",
+  "sourceProjectName": "ESP32-S3 Sensor Board",
+  "generatedAt": "2026-06-11T21:00:00.000Z",
+  "serverVersion": "0.4.0",
+  "artifacts": [
+    {
+      "filename": "ESP32-S3-Board-F.Cu.gbr",
+      "fileType": "gerber",
+      "purpose": "Top copper layer",
+      "sourceProject": "proj-esp32-s3-001",
+      "generatedByTool": "easyeda-export-gerbers",
+      "timestamp": "2026-06-11T21:00:01.000Z",
+      "checksum": "abc123",
+      "fileSize": 4096,
+      "required": true,
+      "stale": false
+    },
+    {
+      "filename": "ESP32-S3-Board-B.Cu.gbr",
+      "fileType": "gerber",
+      "purpose": "Bottom copper layer",
+      "sourceProject": "proj-esp32-s3-001",
+      "generatedByTool": "easyeda-export-gerbers",
+      "timestamp": "2026-06-11T21:00:02.000Z",
+      "checksum": "def456",
+      "fileSize": 4096,
+      "required": true,
+      "stale": false
+    },
+    {
+      "filename": "ESP32-S3-Board.drl",
+      "fileType": "drill",
+      "purpose": "NC drill file",
+      "sourceProject": "proj-esp32-s3-001",
+      "generatedByTool": "easyeda-export-gerbers",
+      "timestamp": "2026-06-11T21:00:03.000Z",
+      "checksum": "ghi789",
+      "fileSize": 512,
+      "required": true,
+      "stale": false
+    },
+    {
+      "filename": "ESP32-S3-Board.csv",
+      "fileType": "bom",
+      "purpose": "Bill of materials",
+      "sourceProject": "proj-esp32-s3-001",
+      "generatedByTool": "easyeda-export-pick-place",
+      "timestamp": "2026-06-11T21:00:04.000Z",
+      "checksum": "jkl012",
+      "fileSize": 2048,
+      "required": true,
+      "stale": false
+    },
+    {
+      "filename": "ESP32-S3-Board-PnP.csv",
+      "fileType": "pnp",
+      "purpose": "Pick-and-place centroid file",
+      "sourceProject": "proj-esp32-s3-001",
+      "generatedByTool": "easyeda-export-pick-place",
+      "timestamp": "2026-06-11T21:00:05.000Z",
+      "checksum": "mno345",
+      "fileSize": 1024,
+      "required": false,
+      "stale": false
+    },
+    {
+      "filename": "ESP32-S3-Board-Schematic.pdf",
+      "fileType": "pdf",
+      "purpose": "Schematic PDF",
+      "sourceProject": "proj-esp32-s3-001",
+      "generatedByTool": "easyeda-export-pdf",
+      "timestamp": "2026-06-11T21:00:06.000Z",
+      "checksum": "pqr678",
+      "fileSize": 15360,
+      "required": false,
+      "stale": false
+    }
+  ],
+  "expectedArtifacts": [
+    {
+      "filename": "ESP32-S3-Board-F.Cu.gbr",
+      "fileType": "gerber",
+      "minSizeBytes": 2048,
+      "required": true
+    },
+    {
+      "filename": "ESP32-S3-Board-B.Cu.gbr",
+      "fileType": "gerber",
+      "minSizeBytes": 2048,
+      "required": true
+    },
+    {
+      "filename": "ESP32-S3-Board.drl",
+      "fileType": "drill",
+      "minSizeBytes": 128,
+      "required": true
+    },
+    { "filename": "ESP32-S3-Board.csv", "fileType": "bom", "minSizeBytes": 512, "required": true },
+    {
+      "filename": "ESP32-S3-Board-PnP.csv",
+      "fileType": "pnp",
+      "minSizeBytes": 512,
+      "required": false
+    },
+    {
+      "filename": "ESP32-S3-Board-Schematic.pdf",
+      "fileType": "pdf",
+      "minSizeBytes": 10240,
+      "required": false
+    }
+  ]
+}

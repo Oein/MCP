@@ -1,0 +1,115 @@
+---
+name: Bug Report 🐛
+description: Report a bug, unexpected behavior, or tool execution failure.
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting this issue! Please provide as much detail as possible to help us reproduce and resolve the bug.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected Area
+      options:
+        - area:easyeda-bridge
+        - area:schematic
+        - area:pcb
+        - area:bom-sourcing
+        - area:manufacturing-export
+        - area:docs
+        - area:release
+        - area:security
+        - area:devex
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Impact / Priority
+      options:
+        - P0 - blocks installation, release, security, or live bridge operation
+        - P1 - important product, safety, or supply-chain issue
+        - P2 - roadmap, docs, polish, or non-blocking issue
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Describe what went wrong and how it impacts functionality...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Explain how we can reproduce the behavior step-by-step.
+      placeholder: |
+        1. Run `pnpm dev` or `easyeda-mcp-pro`
+        2. Set up the EasyEDA Pro client config using ...
+        3. Call MCP tool `easyeda_schematic_components`
+        4. See error: ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: What must be true before this bug can be closed?
+      placeholder: |
+        - [ ] Reproduction is covered by a test or smoke check.
+        - [ ] Fix is released or documented.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: E.g., The tool should list all 5 schematic components without throwing a WebSocket timeout.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Info
+      description: Run `easyeda-mcp-pro --doctor` (or `pnpm doctor`) and paste the output here, or fill in the values below.
+      placeholder: |
+        - easyeda-mcp-pro Version:
+        - Node.js Version:
+        - pnpm Version:
+        - OS: [e.g., Windows 11, macOS 14, Ubuntu 24.04]
+        - EasyEDA Pro Client: [e.g., Desktop Client v2.2.32, Web Editor]
+        - Bridge Extension Version: [e.g., v0.3.2]
+        - Tool Profile: [core / pro / full]
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Log Output
+      description: Please paste the relevant log output from the terminal (use `LOG_LEVEL=debug` if possible).
+      render: shell
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Verification Steps
+      description: 'Confirm you have done the following before submitting:'
+      options:
+        - label: I am running the latest version of the MCP server and bridge extension.
+          required: true
+        - label: I ran `easyeda-mcp-pro --doctor` and it didn't solve my issue.
+          required: true
+        - label: I have searched the existing issues and found no duplicates.
+          required: true

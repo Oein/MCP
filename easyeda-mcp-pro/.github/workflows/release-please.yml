@@ -1,0 +1,37 @@
+---
+name: Release Please PR
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: release-please-pr-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  release-please:
+    name: Maintain stable release PR
+    if: github.repository_owner == 'oaslananka' || github.repository_owner == 'oaslananka-ops'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Create and update the release PR branch.
+      pull-requests: write # Create and update the stable release PR.
+      issues: write # Maintain release labels and linked issue metadata.
+    steps:
+      - name: Checkout release metadata
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Run Release Please PR manager
+        uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
+        with:
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+          skip-github-release: true
