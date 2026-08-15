@@ -1,0 +1,67 @@
+plugins {
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
+}
+
+version = project.mod_version
+group = project.maven_group
+
+repositories {
+	mavenCentral()
+}
+
+loom {
+	mods {
+		"mcmcp-bridge" {
+			sourceSet sourceSets.main
+		}
+	}
+
+	runs {
+		client {
+			// ./gradlew runClient -Pheadless=true  ->  hidden game window
+			vmArg "-Dmcmcp.headless=${project.findProperty('headless') ?: false}"
+
+			// Keep the JVM out of the desktop's input handling. Minecraft renders
+			// through GLFW and never needs AWT, but if AWT does initialise it
+			// installs an input context and registers as a UI application, which
+			// on macOS disturbs the active input source -- an IME mid-composition
+			// in another app loses its state. Neither flag affects the game.
+			vmArg "-Djava.awt.headless=true"
+			vmArg "-Dapple.awt.UIElement=true"
+		}
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+	// Baritone: compile-time only. At runtime the same jar is supplied by the
+	// mods folder, and every call site is isolated in BaritoneNative so the
+	// bridge still loads (with pathfinding disabled) when Baritone is absent.
+	// Must be the "api" flavour -- ProGuard obfuscates member names in the
+	// standalone build, so getProvider() there is called a().
+	compileOnly files("libs/baritone-api.jar")
+
+	// WorldEdit is driven through its commands, so it needs no dependency here.
+}
+
+processResources {
+	def version = project.version
+	inputs.property "version", version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 25
+	it.options.encoding = 'UTF-8'
+}
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+}

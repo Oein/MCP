@@ -1,0 +1,21 @@
+{
+  "name": "mc-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Let an AI agent play Minecraft 26.2 as a real player",
+  "workspaces": [
+    "packages/*",
+    "mcp-server",
+    "e2e"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace @mc-mcp/client && npm run build --workspace mc-mcp-server",
+    "e2e": "npm run build && npm test --workspace @mc-mcp/e2e",
+    "e2e:visible": "npm run build && npm run test:visible --workspace @mc-mcp/e2e",
+    "typecheck": "npm run typecheck --workspace @mc-mcp/e2e",
+    "e2e:stop": "npm run stop --workspace @mc-mcp/e2e"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

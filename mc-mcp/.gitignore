@@ -1,0 +1,12 @@
+# 공통 규칙(node_modules, dist, build, 로그, *.jar 등)은 루트 .gitignore 참고
+
+# 게임 런타임 (월드, 로그, 모드, 옵션)
+bridge-mod/run/
+test-server/
+
+# setup.sh가 클론/빌드하는 vendored 소스
+baritone/
+bridge-mod/libs/
+
+# e2e 실행 산출물 (스크린샷 등)
+e2e/artifacts/

@@ -1,0 +1,29 @@
+{
+	"schemaVersion": 1,
+	"id": "mcmcp-bridge",
+	"version": "${version}",
+	"name": "mc-mcp Bridge",
+	"description": "Exposes a loopback-only control API for the mc-mcp MCP server, letting an AI agent play Minecraft as a real player.",
+	"authors": [
+		"mc-mcp"
+	],
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"dev.mcmcp.bridge.McMcpBridge"
+		]
+	},
+	"mixins": [
+		{
+			"config": "mcmcp-bridge.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

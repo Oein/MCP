@@ -1,0 +1,18 @@
+{
+	"required": true,
+	"package": "dev.mcmcp.bridge.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"HeadlessWindowMixin",
+		"ClientChatCaptureMixin",
+		"ImeGuardMixin",
+		"UserInputMixin$Mouse",
+		"UserInputMixin$Keyboard"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
