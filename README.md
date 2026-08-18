@@ -17,6 +17,7 @@
 | [`dbpia-mcp`](dbpia-mcp/) | DBpia 논문 검색·원문 PDF 다운로드 | 5 | **필수** | JS (빌드 없음) |
 | [`easyeda-mcp-pro`](easyeda-mcp-pro/) | EasyEDA Pro PCB 설계·BOM·제조 파일 | 120+ | 불필요 | TS + pnpm |
 | [`mc-mcp`](mc-mcp/) | 실제 Minecraft 26.2 클라이언트 조작 | 44 | 불필요 | TS + Fabric 모드(Java 25) |
+| [`millie-mcp`](millie-mcp/) | 밀리의 서재 도서 검색·자동완성·상세 | 5 | 선택 | TS |
 | [`our-worlds-in-data-mcp`](our-worlds-in-data-mcp/) | Our World in Data 차트·지표 조회 | 8 | 불필요 | TS |
 
 설치·등록·도구별 상세 인자는 각 디렉터리의 `README.md`에 있다.
@@ -60,6 +61,17 @@
 
 `search_institution`만 로그인 없이 동작한다. 기관 ID를 모를 때 이걸로 먼저 찾는다.
 DBpia가 원문을 주지 않는 논문은 KCI의 공개 원문으로 대체해 받는다.
+</details>
+
+<details>
+<summary><b>millie-mcp</b> — 검색은 무인증, 상세만 토큰 (5)</summary>
+
+`millie_search` `millie_autocomplete` `millie_search_sections`
+`millie_book_detail` `millie_auth_status`
+
+밀리 앱이 쓰는 검색 엔드포인트를 그대로 부른다. 한 번의 호출이 도서·서재·독서 포스트·
+밀리로드를 한꺼번에 돌려주므로 섹션 검색은 추가 요청이 아니다. 정렬 파라미터는 없고
+항상 관련도 순이다. 상세 조회만 계정 토큰을 쓴다.
 </details>
 
 <details>
@@ -153,10 +165,10 @@ stderr로 보낼 것. 대화형 확인은 MCP Inspector가 편하다.
 npx -y @modelcontextprotocol/inspector node dist/index.js
 ```
 
-`our-worlds-in-data-mcp`는 `npm run inspect`(Inspector)와 `npm run smoke`(실제 API로 8개 도구 호출)를
-스크립트로 제공한다.
+`our-worlds-in-data-mcp`와 `millie-mcp`는 `npm run inspect`(Inspector)와 `npm run smoke`(실제 API로
+전체 도구 호출)를 스크립트로 제공한다.
 
-**스크래핑 서버의 수명.** `aliexpress` · `bunjang` · `choson-sillok` · `dbpia`는 공식 API가 아니라
+**스크래핑 서버의 수명.** `aliexpress` · `bunjang` · `choson-sillok` · `dbpia` · `millie`는 공식 API가 아니라
 웹 엔드포인트를 직접 호출한다. 대상 사이트가 바뀌면 깨진다. 각 README의 "구현 메모"에
 재현하기 까다로웠던 지점(필수 hidden 필드, 쿠키로 전달되는 파라미터, 서버 필터 버그 등)을
 정리해 뒀으니 고치기 전에 먼저 읽을 것.
@@ -187,11 +199,11 @@ npx -y @modelcontextprotocol/inspector node dist/index.js
 | --- | --- |
 | MIT | `choson-sillok-mcp` · `our-worlds-in-data-mcp` · `easyeda-mcp-pro` |
 | ISC | `dbpia-mcp` |
-| 미지정 | `aliexpress-mcp` · `bunjang-mcp` · `mc-mcp` |
+| 미지정 | `aliexpress-mcp` · `bunjang-mcp` · `mc-mcp` · `millie-mcp` |
 
 `easyeda-mcp-pro`는 [oaslananka/easyeda-mcp-pro](https://github.com/oaslananka/easyeda-mcp-pro)의
 사본이다(MIT, `LICENSE` 포함). 해당 README의 CI·Scorecard 배지는 이 저장소가 아니라 upstream을 가리킨다.
 
 **코드 라이선스가 데이터 이용까지 허용하지는 않는다.** 조선왕조실록 원문·번역문의 권리는
 국사편찬위원회에, OWID 데이터는 CC BY 4.0(출처 표기 필요, 일부는 재배포 제한), DBpia·KCI 논문은
-각 발행처에 있다. 상거래 사이트 데이터는 각 사이트의 이용약관을 따른다.
+각 발행처에 있다. 상거래 사이트와 밀리의 서재 데이터는 각 사이트의 이용약관을 따른다.
