@@ -18,6 +18,7 @@
 | [`easyeda-mcp-pro`](easyeda-mcp-pro/) | EasyEDA Pro PCB 설계·BOM·제조 파일 | 120+ | 불필요 | TS + pnpm |
 | [`mc-mcp`](mc-mcp/) | 실제 Minecraft 26.2 클라이언트 조작 | 44 | 불필요 | TS + Fabric 모드(Java 25) |
 | [`millie-mcp`](millie-mcp/) | 밀리의 서재 도서 검색·자동완성·상세 | 5 | 선택 | TS |
+| [`notion-mcp`](notion-mcp/) | Notion 페이지·블록·데이터베이스·댓글 CRUD | 25 | **필수** | TS |
 | [`our-worlds-in-data-mcp`](our-worlds-in-data-mcp/) | Our World in Data 차트·지표 조회 | 8 | 불필요 | TS |
 
 설치·등록·도구별 상세 인자는 각 디렉터리의 `README.md`에 있다.
@@ -198,7 +199,7 @@ npx -y @modelcontextprotocol/inspector node dist/index.js
 | 라이선스 | 프로젝트 |
 | --- | --- |
 | MIT | `choson-sillok-mcp` · `our-worlds-in-data-mcp` · `easyeda-mcp-pro` |
-| ISC | `dbpia-mcp` |
+| ISC | `dbpia-mcp` · `notion-mcp` |
 | 미지정 | `aliexpress-mcp` · `bunjang-mcp` · `mc-mcp` · `millie-mcp` |
 
 `easyeda-mcp-pro`는 [oaslananka/easyeda-mcp-pro](https://github.com/oaslananka/easyeda-mcp-pro)의
